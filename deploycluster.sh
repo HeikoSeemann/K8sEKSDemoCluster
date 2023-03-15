@@ -2,6 +2,7 @@
 eksctl create cluster -f cluster.yaml
 #eksctl delete cluster -f cluster.yaml
 kubectl apply -f clusterRole.yaml
+kubectl create namespace monitoring
 
 
 #Deploy sample mongo db 
