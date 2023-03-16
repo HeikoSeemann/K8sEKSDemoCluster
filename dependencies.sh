@@ -40,3 +40,21 @@ else
     echo "aws cli successfully installed"
 fi
 
+
+echo "Checking for kubectl..."
+if command -v kubectl version --client &> /dev/null
+then
+    echo "kubectl is installed:"
+    kubectl version --client
+else
+    echo "Kubectl is not installed"
+    echo "installing..."
+
+    #moving to root dir and installing aws cli
+    cd
+    curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"    sudo mv /tmp/eksctl /usr/local/bin
+    curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+    sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+    kubectl version --client
+    echo "aws cli successfully installed"
+fi
