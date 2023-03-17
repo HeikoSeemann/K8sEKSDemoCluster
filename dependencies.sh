@@ -29,7 +29,7 @@ then
     echo "eksctl is installed:"
     eksctl version
 else
-    echo "AWS CLI is not installed"
+    echo "eksctl is not installed"
     echo "installing..."
 
     #moving to root dir and installing aws cli
@@ -37,7 +37,7 @@ else
     curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
     sudo mv /tmp/eksctl /usr/local/bin
     eksctl version
-    echo "aws cli successfully installed"
+    echo "ekctl successfully installed"
 fi
 
 
