@@ -1,12 +1,7 @@
 #!/bin/bash
 
-#first we need to use "aws configure" to connect to our desired AWS Account
-#need to activate console access in IAM Users
-
-
-
 eksctl create cluster -f cluster.yaml
-#eksctl delete cluster -f cluster.yaml
+
 kubectl apply -f clusterRole.yaml
 kubectl create namespace monitoring
 
